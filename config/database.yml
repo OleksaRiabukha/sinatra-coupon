@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: coupon_generator_development
+  username: <%= ENV.fetch("POSTGRES_USER") {} %> 
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") {} %>
+  host: <%= ENV.fetch("POSTGRES_HOST") {} %> 
+
+test:
+  <<: *default
+  database: coupon_generator_test
+
+production:
+  <<: *default
+  database: coupon_generator_production
