@@ -17,4 +17,9 @@ gem 'jsonapi-serializer'
 
 group :test, :development do
   gem 'pry'
+  gem 'rspec'
+  gem 'rack-test'
+  gem 'faker'
+  gem "factory_bot"
+  gem 'shoulda-matchers'
 end
