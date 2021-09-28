@@ -27,6 +27,7 @@ GEM
       zeitwerk (~> 2.3)
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
+    bond (0.5.1)
     bootstrap (5.1.0)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.9.3, < 3)
@@ -43,6 +44,8 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     json (2.5.1)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -76,6 +79,14 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.6)
+    ripl (0.7.1)
+      bond (~> 0.5.1)
+    ripl-multi_line (0.3.1)
+      ripl (>= 0.3.6)
+    ripl-rack (0.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
+      ripl (>= 0.3.5)
     ruby2_keywords (0.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -112,10 +123,13 @@ GEM
       rack (>= 1, < 3)
     thor (1.1.0)
     tilt (2.0.10)
+    tux (0.3.0)
+      ripl (>= 0.3.5)
+      ripl-multi_line (>= 0.2.4)
+      ripl-rack (>= 0.2.0)
+      sinatra (>= 1.2.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    warden (1.2.9)
-      rack (>= 2.0.9)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -126,6 +140,7 @@ DEPENDENCIES
   activesupport
   bootstrap (~> 5.1.0)
   json
+  jsonapi-serializer
   pg
   pry
   rake
@@ -133,7 +148,7 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-contrib
   thin
-  warden
+  tux
 
 RUBY VERSION
    ruby 3.0.1p64

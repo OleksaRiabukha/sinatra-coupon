@@ -12,6 +12,8 @@ gem 'rake'
 gem 'pg'
 gem 'bootstrap', '~> 5.1.0'
 gem 'json'
+gem 'tux'
+gem 'jsonapi-serializer'
 
 group :test, :development do
   gem 'pry'

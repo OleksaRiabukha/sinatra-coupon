@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_09_27_110824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coupons", force: :cascade do |t|
+    t.string "coupon_number", null: false
+    t.decimal "amount", precision: 8, scale: 2, null: false
+    t.boolean "used", default: false, null: false
+    t.boolean "for_present", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coupon_number"], name: "index_coupons_on_coupon_number", unique: true
+  end
 
 end
