@@ -11,18 +11,13 @@ RSpec.describe CouponApp, type: :request do
         post '/coupons', params, header
       end
 
-      it 'returns a 200 code' do
-        expect(last_response).to be_ok
-      end
-
       it 'creates a coupon' do
         expect(Coupon.count).to eq(1)
       end
 
-      it 'returns the coupon in predefined json schema' do
-        expect(last_response).to match_response_schema('coupon')
-      end
+      include_examples "returns an 'ok' status code"
 
+      include_examples 'returns valid json object'
     end
 
     context 'when user create coupon with invalid attributes' do
@@ -40,22 +35,16 @@ RSpec.describe CouponApp, type: :request do
         expect(Coupon.count).to eq(0)
       end
 
-      it 'returns an errors int predefined json schem' do
-        expect(last_response).to match_response_schema('model_error')
-      end
+      include_examples 'returns valid json object with errors', 'model_error'
     end
   end
 
   describe 'PUT /coupons/:id' do
     context 'when user updates coupon with valid params' do
-      let(:coupon) { create(:coupon, :with_coupon_number) }
+      let(:coupon) { create(:coupon) }
 
       before do
         put "/coupons/#{coupon.coupon_number}"
-      end
-
-      it 'returns a 200 code' do
-        expect(last_response).to be_ok
       end
 
       it "updates coupon's 'used' status" do
@@ -63,9 +52,9 @@ RSpec.describe CouponApp, type: :request do
         expect(used_coupon).to eq(true)
       end
 
-      it 'returns a coupon with predifined json scheme' do
-        expect(last_response).to match_response_schema('coupon')
-      end
+      include_examples "returns an 'ok' status code"
+
+      include_examples 'returns valid json object'
     end
 
     context 'when user tries to update nonexistent coupon' do
@@ -75,34 +64,26 @@ RSpec.describe CouponApp, type: :request do
         put "/coupons/#{nonexistent_coupon_number}"
       end
 
-      it 'returns a 400 code' do
-        expect(last_response).to be_bad_request
-      end
+      include_examples 'returns bad request status'
 
-      it 'returns errors in predined json schema' do
-        expect(last_response).to match_response_schema('custom_error')
-      end
+      include_examples 'returns valid json object with errors', 'custom_error'
     end
 
    context 'when user tries to update already used coupon' do
-     let(:used_coupon) { create(:coupon, :with_coupon_number, used: true) }
+     let(:used_coupon) { create(:coupon, used: true) }
 
      before do
        put "/coupons/#{used_coupon.coupon_number}"
-     end
-
-     it 'returns a 400 code' do
-       expect(last_response).to be_bad_request
-     end
-
-     it 'returns errors with predefined json schema' do
-       expect(last_response).to match_response_schema('custom_error')
      end
 
      it 'notifies the coupon was previously used' do
        error_message = JSON.parse(last_response.body).deep_symbolize_keys[:errors][0][:detail]
        expect(error_message).to eq('Has already been used')
      end
+
+     include_examples 'returns bad request status'
+
+     include_examples 'returns valid json object with errors', 'custom_error'
    end
   end
 end

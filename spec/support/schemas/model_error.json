@@ -6,61 +6,45 @@
       "type": "object",
       "properties": {
         "errors": {
+          "type": "array",
           "items": [
             {
               "type": "object",
               "properties": {
                 "status": {
                   "type": "string"
-
                 },
                 "source": {
                   "type": "object",
                   "properties": {
                     "pointer": {
                       "type": "string"
-
                     }
-
                   },
                   "required": [
                     "pointer"
-
                   ]
-
                 },
                 "title": {
                   "type": "string"
-
                 },
                 "detail": {
                   "type": "string"
-
                 }
-
               },
               "required": [
                 "status",
                 "source",
                 "title",
                 "detail"
-
               ]
-
             }
-
           ]
-
         }
-
       },
       "required": [
         "errors"
-
       ]
-
     }
-
   ]
-
 }

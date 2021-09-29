@@ -11,6 +11,7 @@ Bundler.require(:default, :test)
 
 require File.expand_path('../app.rb', __dir__)
 Dir["#{settings.root}/*/*.rb"].each { |file| require file }
+Dir["#{settings.root}/support/shared_examples/*/*.rb"].each { |file| require file }
 
 def app
   CouponApp
@@ -33,10 +34,3 @@ RSpec.configure do |config|
   end
 end
 
-RSpec::Matchers.define :match_response_schema do |schema|
-  match do |response|
-    schema_directory = "#{Dir.pwd}/spec/support/schemas"
-    schema_path = "#{schema_directory}/#{schema}.json"
-    JSON::Validator.validate!(schema_path, last_response.body, strict: true)
-  end
-end

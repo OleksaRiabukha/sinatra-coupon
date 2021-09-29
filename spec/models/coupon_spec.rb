@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Coupon, type: :model do
-  let!(:coupon) { create(:coupon, :with_coupon_number) }
+  let!(:coupon) { create(:coupon) }
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:amount) }
@@ -9,14 +9,13 @@ RSpec.describe Coupon, type: :model do
   end
 
   describe 'uniqueness' do
-    it { is_expected.to validate_uniqueness_of(:coupon_number) }
+    it { is_expected.to validate_uniqueness_of(:coupon_number).case_insensitive }
   end
 
   describe 'coupon number' do
-    it 'generates random six-chars-long coupon number before creation' do
+    it 'generates random six-chars-long coupon number after initialization' do
       coupon = Coupon.new
-      coupon.generate_coupon
-      expect(coupon.coupon_number).not_to eq(nil)
+      expect(coupon.coupon_number).not_to be_nil
       expect(coupon.coupon_number.length).to eq(6)
     end
   end

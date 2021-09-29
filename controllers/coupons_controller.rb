@@ -9,8 +9,7 @@ class CouponApp < Sinatra::Base
     coupon_json_params
     coupon = Coupon.new(amount: @coupon_attributes[:amount], for_present: @coupon_attributes[:for_present])
 
-    if coupon.valid?
-      coupon.save
+    if coupon.save
       CouponSerializer.new(coupon).serializable_hash.to_json
     else
       status 422
