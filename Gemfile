@@ -22,6 +22,7 @@ group :test, :development do
   gem 'faker'
   gem "factory_bot"
   gem 'shoulda-matchers'
+  gem 'json-schema'
 end
 
 group :test do

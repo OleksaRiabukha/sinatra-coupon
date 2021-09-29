@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Coupon, type: :model do
-  let!(:coupon) { create(:coupon) }
+  let!(:coupon) { create(:coupon, :with_coupon_number) }
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:amount) }

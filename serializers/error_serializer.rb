@@ -4,7 +4,7 @@ class ErrorSerializer
     model_errors = model.errors.messages.map do |field, errors|
       errors.map do |error_message|
         {
-          errors: [
+          errors: [ 
             {
               status: status.to_s,
               source: { pointer: "data/attributes/#{field}" },

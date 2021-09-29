@@ -3,6 +3,7 @@ require 'rspec'
 require 'rack/test'
 require 'faker'
 require 'database_cleaner/active_record'
+require 'json-schema'
 
 ENV['RACK_ENV'] = 'test'
 
@@ -37,5 +38,13 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :active_record
     with.library :active_model
+  end
+end
+
+RSpec::Matchers.define :match_response_schema do |schema|
+  match do |response|
+    schema_directory = "#{Dir.pwd}/spec/support/schemas"
+    schema_path = "#{schema_directory}/#{schema}.json"
+    JSON::Validator.validate!(schema_path, last_response.body, strict: true)
   end
 end
