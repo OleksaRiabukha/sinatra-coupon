@@ -23,3 +23,7 @@ group :test, :development do
   gem "factory_bot"
   gem 'shoulda-matchers'
 end
+
+group :test do
+  gem 'database_cleaner-active_record'
+end

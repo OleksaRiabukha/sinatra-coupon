@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Coupon, type: :model do
+  let!(:coupon) { create(:coupon) }
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:amount) }
@@ -21,8 +22,6 @@ RSpec.describe Coupon, type: :model do
   end
 
   describe 'used coupons' do
-    let(:coupon) { create(:coupon) }
-
     it 'updates coupon usage status' do
       coupon.use_coupon
       expect(coupon.used?).to be_truthy
