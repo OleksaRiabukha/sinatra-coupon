@@ -1,10 +1,10 @@
-class ErrorSerializer
+class ErrorSerializer < BaseSerializer
 
   def self.serialized_model_errors(model, status)
     model_errors = model.errors.messages.map do |field, errors|
       errors.map do |error_message|
         {
-          errors: [ 
+          errors: [
             {
               status: status.to_s,
               source: { pointer: "data/attributes/#{field}" },

@@ -8,7 +8,6 @@ class CouponApp < Sinatra::Base
 
     coupon_json_params
     coupon = Coupon.new(amount: @coupon_attributes[:amount], for_present: @coupon_attributes[:for_present])
-    coupon.generate_coupon
 
     if coupon.valid?
       coupon.save
