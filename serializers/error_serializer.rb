@@ -8,27 +8,30 @@ class ErrorSerializer < BaseSerializer
     serialized_hash(status, source, details)
   end
 
-  private_class_method def self.extract_attributes(model)
-    attributes = []
-    model.errors.messages.map do |field, errors|
-      attributes << field
-      errors.map do |error_message|
-        attributes << error_message
-      end
-    end
-    attributes
-  end
+  class << self
 
-  private_class_method def self.serialized_hash(status, source, details)
-    {
-      errors: [
-        {
-          status: status.to_s,
-          source: { pointer: "data/model/#{source}" },
-          title: source.to_s,
-          details: details
-        }
-      ]
-    }
+    def extract_attributes(model)
+      attributes = []
+      model.errors.messages.map do |field, errors|
+        attributes << field
+        errors.map do |error_message|
+          attributes << error_message
+        end
+      end
+      attributes
+    end
+
+    def serialized_hash(status, source, details)
+      {
+        errors: [
+          {
+            status: status.to_s,
+            source: { pointer: "data/model/#{source}" },
+            title: source.to_s,
+            details: details
+          }
+        ]
+      }
+    end
   end
 end

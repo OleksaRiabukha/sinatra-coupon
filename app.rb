@@ -8,11 +8,9 @@ require 'jsonapi/serializer'
 
 require 'pry' unless ENV['APP_ENV'] == 'production'
 
-Dir['./lib/*.rb'].each { |file| require_relative file }
-Dir['./config/*.rb'].each { |file| require_relative file }
-Dir['./models/*.rb'].each { |file| require_relative file }
-Dir['./controllers/*.rb'].each { |file| require_relative file }
-Dir['./serializers/*.rb'].each { |file| require_relative file }
+['./lib/*.rb', './config/*.rb', './models/*.rb', './controllers/*.rb', './serializers/*.rb'].each do |files|
+  Dir[files].each { |file| require_relative file }
+end
 
 class CouponApp < Sinatra::Base
 
