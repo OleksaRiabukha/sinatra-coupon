@@ -2,13 +2,15 @@ require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'rack/protection'
+require 'sinatra/json'
 require 'json'
+require 'jsonapi/serializer'
 
-Dir['./lib/*.rb'].each { |file| require_relative file }
-Dir['./config/*.rb'].each { |file| require_relative file }
-Dir['./models/*.rb'].each { |file| require_relative file }
-Dir['./controllers/*.rb'].each { |file| require_relative file }
-Dir['./routes/*.rb'].each { |file| require_relative file }
+require 'pry' unless ENV['APP_ENV'] == 'production'
+
+['./lib/*.rb', './config/*.rb', './models/*.rb', './controllers/*.rb', './serializers/*.rb'].each do |files|
+  Dir[files].each { |file| require_relative file }
+end
 
 class CouponApp < Sinatra::Base
 
