@@ -35,7 +35,7 @@ RSpec.describe CouponApp, type: :request do
         expect(Coupon.count).to eq(0)
       end
 
-      include_examples 'returns valid json object with errors', 'model_error'
+      include_examples 'returns valid json object with errors'
     end
   end
 
@@ -66,7 +66,7 @@ RSpec.describe CouponApp, type: :request do
 
       include_examples 'returns bad request status'
 
-      include_examples 'returns valid json object with errors', 'custom_error'
+      include_examples 'returns valid json object with errors'
     end
 
    context 'when user tries to update already used coupon' do
@@ -77,13 +77,13 @@ RSpec.describe CouponApp, type: :request do
      end
 
      it 'notifies the coupon was previously used' do
-       error_message = JSON.parse(last_response.body).deep_symbolize_keys[:errors][0][:detail]
+       error_message = JSON.parse(last_response.body).deep_symbolize_keys[:errors][0][:details]
        expect(error_message).to eq('Has already been used')
      end
 
      include_examples 'returns bad request status'
 
-     include_examples 'returns valid json object with errors', 'custom_error'
+     include_examples 'returns valid json object with errors'
    end
   end
 end

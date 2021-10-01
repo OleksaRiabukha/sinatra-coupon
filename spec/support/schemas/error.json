@@ -25,7 +25,7 @@
             "title": {
               "type": "string"
             },
-            "detail": {
+            "details": {
               "type": "string"
             }
           },
@@ -33,7 +33,7 @@
             "status",
             "source",
             "title",
-            "detail"
+            "details"
           ]
         }
       ]
