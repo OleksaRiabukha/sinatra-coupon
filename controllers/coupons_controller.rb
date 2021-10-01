@@ -13,7 +13,7 @@ class CouponApp < Sinatra::Base
       CouponSerializer.new(coupon).serializable_hash.to_json
     else
       status 422
-      ErrorSerializer.serialized_model_errors(coupon, 422).to_json
+      ErrorSerializer.serialized_error(status: 422, model: coupon).to_json
     end
   end
 
@@ -23,16 +23,14 @@ class CouponApp < Sinatra::Base
 
     if coupon.nil?
       status 400
-      ErrorSerializer.custom_error(400,
-                                   'coupon',
-                                   'coupon',
-                                   'No such coupon').to_json
+      ErrorSerializer.serialized_error(status: 400,
+                                       source: 'coupon',
+                                       details: 'No such coupon').to_json
     elsif coupon.used?
       status 400
-      ErrorSerializer.custom_error(400,
-                                   'coupon',
-                                   'coupon',
-                                   'Has already been used').to_json
+      ErrorSerializer.serialized_error(status: 400,
+                                       source: 'coupon',
+                                       details: 'Has already been used').to_json
     else
       coupon.use_coupon
       CouponSerializer.new(coupon).serializable_hash.to_json

@@ -1,31 +1,32 @@
 class ErrorSerializer < BaseSerializer
 
-  def self.serialized_model_errors(model, status)
-    model_errors = model.errors.messages.map do |field, errors|
-      errors.map do |error_message|
-        {
-          errors: [
-            {
-              status: status.to_s,
-              source: { pointer: "data/attributes/#{field}" },
-              title: field,
-              detail: error_message
-            }
-          ]
-        }
-      end
-    end
-    model_errors.flatten
+  def self.serialized_error(status:, model: nil, source: nil, details: nil)
+    return serialized_hash(status, source, details) if model.nil?
+
+    source, details = extract_attributes(model)
+
+    serialized_hash(status, source, details)
   end
 
-  def self.custom_error(status, source, title, detail)
+  private_class_method def self.extract_attributes(model)
+    attributes = []
+    model.errors.messages.map do |field, errors|
+      attributes << field
+      errors.map do |error_message|
+        attributes << error_message
+      end
+    end
+    attributes
+  end
+
+  private_class_method def self.serialized_hash(status, source, details)
     {
       errors: [
         {
           status: status.to_s,
           source: { pointer: "data/model/#{source}" },
-          title: title,
-          detail: detail
+          title: source.to_s,
+          details: details
         }
       ]
     }
