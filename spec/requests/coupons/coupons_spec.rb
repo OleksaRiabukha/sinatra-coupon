@@ -57,8 +57,9 @@ RSpec.describe CouponApp, type: :request do
       include_examples 'returns valid json object'
     end
 
-    context 'when user tries to update nonexistent coupon' do
+    context 'invalid requests' do
       let(:nonexistent_coupon_number) { Faker::Alphanumeric.alphanumeric(number: 6) }
+      let(:used_coupon) { create(:coupon, used: true) }
 
       before do
         put "/coupons/#{nonexistent_coupon_number}"
@@ -67,23 +68,12 @@ RSpec.describe CouponApp, type: :request do
       include_examples 'returns bad request status'
 
       include_examples 'returns valid json object with errors'
+
+      it 'notifies the coupon was previously used if users tries to reuse coupon' do
+        put "/coupons/#{used_coupon.coupon_number}"
+        error_message = JSON.parse(last_response.body).deep_symbolize_keys[:errors][0][:details]
+        expect(error_message).to eq('Has already been used')
+      end
     end
-
-   context 'when user tries to update already used coupon' do
-     let(:used_coupon) { create(:coupon, used: true) }
-
-     before do
-       put "/coupons/#{used_coupon.coupon_number}"
-     end
-
-     it 'notifies the coupon was previously used' do
-       error_message = JSON.parse(last_response.body).deep_symbolize_keys[:errors][0][:details]
-       expect(error_message).to eq('Has already been used')
-     end
-
-     include_examples 'returns bad request status'
-
-     include_examples 'returns valid json object with errors'
-   end
   end
 end
