@@ -2,27 +2,26 @@ source 'https://rubygems.org'
 
 ruby '3.0.1'
 
-gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'thin'
-gem 'activesupport'
 gem 'activerecord'
-gem 'sinatra-activerecord'
-gem 'rake'
-gem 'pg'
+gem 'activesupport'
 gem 'bootstrap', '~> 5.1.0'
 gem 'json'
-gem 'tux'
 gem 'jsonapi-serializer'
+gem 'pg'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sinatra-contrib'
+gem 'thin'
+gem 'tux'
 
 group :test, :development do
-  gem 'pry'
-  gem 'rspec'
-  gem 'rack-test'
+  gem 'factory_bot'
   gem 'faker'
-  gem "factory_bot"
-  gem 'shoulda-matchers'
   gem 'json-schema'
+  gem 'pry'
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'shoulda-matchers'
 end
 
 group :test do

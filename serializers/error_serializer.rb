@@ -1,14 +1,15 @@
 class ErrorSerializer < BaseSerializer
-
-  def self.serialized_error(status:, model: nil, source: nil, details: nil)
-    return serialized_hash(status, source, details) if model.nil?
-
-    source, details = extract_attributes(model)
-
-    serialized_hash(status, source, details)
-  end
-
   class << self
+
+    def serialized_error(status:, model: nil, source: nil, details: nil)
+      return serialized_hash(status, source, details) if model.nil?
+
+      source, details = extract_attributes(model)
+
+      serialized_hash(status, source, details)
+    end
+
+    private
 
     def extract_attributes(model)
       attributes = []

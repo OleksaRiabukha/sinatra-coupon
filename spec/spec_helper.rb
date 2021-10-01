@@ -19,7 +19,6 @@ end
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
-
   config.include FactoryBot::Syntax::Methods
 
   config.before(:suite) do
