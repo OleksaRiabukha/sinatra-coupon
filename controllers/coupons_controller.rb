@@ -2,6 +2,7 @@ class CouponApp < Sinatra::Base
 
   before do
     content_type 'application/json'
+    not_authorized unless authorized_request?
   end
 
   post '/coupons' do
