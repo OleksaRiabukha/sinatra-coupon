@@ -1,19 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    actionpack (6.1.4.1)
-      actionview (= 6.1.4.1)
-      activesupport (= 6.1.4.1)
-      rack (~> 2.0, >= 2.0.9)
-      rack-test (>= 0.6.3)
-      rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.2.0)
-    actionview (6.1.4.1)
-      activesupport (= 6.1.4.1)
-      builder (~> 3.1)
-      erubi (~> 1.4)
-      rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.1, >= 1.2.0)
     activemodel (6.1.4.1)
       activesupport (= 6.1.4.1)
     activerecord (6.1.4.1)
@@ -27,17 +14,9 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (10.3.3.0)
-      execjs (~> 2)
     bond (0.5.1)
-    bootstrap (5.1.0)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.9.3, < 3)
-      sassc-rails (>= 2.0.0)
-    builder (3.2.4)
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
-    crass (1.0.6)
     daemons (1.4.1)
     database_cleaner-active_record (2.0.1)
       activerecord (>= 5.a)
@@ -45,14 +24,11 @@ GEM
     database_cleaner-core (2.0.1)
     diff-lcs (1.4.4)
     dotenv (2.7.6)
-    erubi (1.10.0)
     eventmachine (1.2.7)
-    execjs (2.8.1)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
-    ffi (1.15.4)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     json (2.5.1)
@@ -60,40 +36,21 @@ GEM
       addressable (>= 2.4)
     jsonapi-serializer (2.2.0)
       activesupport (>= 4.2)
-    loofah (2.12.0)
-      crass (~> 1.0.2)
-      nokogiri (>= 1.5.9)
     method_source (1.0.0)
     minitest (5.14.4)
     multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.12.4-x86_64-linux)
-      racc (~> 1.4)
     pg (1.2.3)
-    popper_js (2.9.3)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    racc (1.5.2)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rails-dom-testing (2.0.3)
-      activesupport (>= 4.2.0)
-      nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
-      loofah (~> 2.3)
-    railties (6.1.4.1)
-      actionpack (= 6.1.4.1)
-      activesupport (= 6.1.4.1)
-      method_source
-      rake (>= 0.13)
-      thor (~> 1.0)
-    rake (13.0.6)
     ripl (0.7.1)
       bond (~> 0.5.1)
     ripl-multi_line (0.3.1)
@@ -116,14 +73,6 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
     ruby2_keywords (0.0.5)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
     sinatra (2.1.0)
@@ -140,18 +89,10 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
-    sprockets (4.0.2)
-      concurrent-ruby (~> 1.0)
-      rack (> 1, < 3)
-    sprockets-rails (3.2.2)
-      actionpack (>= 4.0)
-      activesupport (>= 4.0)
-      sprockets (>= 3.0.0)
     thin (1.8.1)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
       rack (>= 1, < 3)
-    thor (1.1.0)
     tilt (2.0.10)
     tux (0.3.0)
       ripl (>= 0.3.5)
@@ -168,7 +109,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   activesupport
-  bootstrap (~> 5.1.0)
   database_cleaner-active_record
   dotenv
   factory_bot
@@ -188,7 +128,7 @@ DEPENDENCIES
   tux
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.24
