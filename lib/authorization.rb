@@ -5,7 +5,7 @@ class CouponApp < Sinatra::Base
 
   def authorized_request?
     token = ENV.fetch('API_KEY')
-    request.env['HTTP_AUTHORIZATION'] == token unless request.env['HTTP_AUTHORIZATION'].nil?
+    request.env['HTTP_AUTHORIZATION'] == token
   end
 
   def forbidden
