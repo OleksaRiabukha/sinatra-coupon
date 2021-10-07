@@ -5,6 +5,9 @@ require 'rack/protection'
 require 'sinatra/json'
 require 'json'
 require 'jsonapi/serializer'
+require 'dotenv'
+
+Dotenv.load(".env.#{ENV['RACK_ENV']}")
 
 require 'pry' unless ENV['APP_ENV'] == 'production'
 
@@ -23,4 +26,8 @@ class CouponApp < Sinatra::Base
   set :raise_errors , true
 
   use Rack::Protection
+
+  error 401 do
+    forbidden
+  end
 end
