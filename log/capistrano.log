@@ -445,3 +445,166 @@
   INFO [aa420eca] Running /usr/bin/env echo "Branch main (at 8abdc00a19c4ad71265e2bb82be71a3fada4b4dd) deployed as release 20211007084818 by oriabu" >> /home/coupon/sinatra-coupon/revisions.log as coupon@139.59.147.22
  DEBUG [aa420eca] Command: cd /home/coupon/sinatra-coupon/releases && /usr/bin/env echo "Branch main (at 8abdc00a19c4ad71265e2bb82be71a3fada4b4dd) deployed as release 20211007084818 by oriabu" >> /home/coupon/sinatra-coupon/revisions.log
   INFO [aa420eca] Finished in 0.169 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-10-07 11:53:28 +0300 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ca9b661d] Running /usr/bin/env mkdir -p /tmp as coupon@139.59.147.22
+ DEBUG [ca9b661d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [ca9b661d] Finished in 5.916 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-cd51649f36f38f39054c.sh 0.0%
+  INFO Uploading /tmp/git-ssh-cd51649f36f38f39054c.sh 100.0%
+  INFO [4af9f5ac] Running /usr/bin/env chmod 700 /tmp/git-ssh-cd51649f36f38f39054c.sh as coupon@139.59.147.22
+ DEBUG [4af9f5ac] Command: /usr/bin/env chmod 700 /tmp/git-ssh-cd51649f36f38f39054c.sh
+  INFO [4af9f5ac] Finished in 0.235 seconds with exit status 0 (successful).
+  INFO [8c9c4c87] Running /usr/bin/env git ls-remote git@github.com:OleksaRiabukha/sinatra-coupon.git HEAD as coupon@139.59.147.22
+ DEBUG [8c9c4c87] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-cd51649f36f38f39054c.sh" ; /usr/bin/env git ls-remote git@github.com:OleksaRiabukha/sinatra-coupon.git HEAD )
+ DEBUG [8c9c4c87] 	8abdc00a19c4ad71265e2bb82be71a3fada4b4dd	HEAD
+  INFO [8c9c4c87] Finished in 1.537 seconds with exit status 0 (successful).
+  INFO [7daaebd8] Running /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/shared /home/coupon/sinatra-coupon/releases as coupon@139.59.147.22
+ DEBUG [7daaebd8] Command: /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/shared /home/coupon/sinatra-coupon/releases
+  INFO [7daaebd8] Finished in 0.598 seconds with exit status 0 (successful).
+  INFO [dd19f243] Running /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/shared/log /home/coupon/sinatra-coupon/shared/tmp/pids /home/coupon/sinatra-coupon/shared/tmp/cache /home/coupon/sinatra-coupon/shared/tmp/sockets /home/coupon/sinatra-coupon/shared/public/system as coupon@139.59.147.22
+ DEBUG [dd19f243] Command: /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/shared/log /home/coupon/sinatra-coupon/shared/tmp/pids /home/coupon/sinatra-coupon/shared/tmp/cache /home/coupon/sinatra-coupon/shared/tmp/sockets /home/coupon/sinatra-coupon/shared/public/system
+  INFO [dd19f243] Finished in 0.547 seconds with exit status 0 (successful).
+  INFO [146ecdaf] Running /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/shared/config as coupon@139.59.147.22
+ DEBUG [146ecdaf] Command: /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/shared/config
+  INFO [146ecdaf] Finished in 0.212 seconds with exit status 0 (successful).
+ DEBUG [7bcf029a] Running [ -f /home/coupon/sinatra-coupon/shared/config/database.yml ] as coupon@139.59.147.22
+ DEBUG [7bcf029a] Command: [ -f /home/coupon/sinatra-coupon/shared/config/database.yml ]
+ DEBUG [7bcf029a] Finished in 0.396 seconds with exit status 0 (successful).
+ DEBUG [f8c0e7e0] Running [ -f /home/coupon/sinatra-coupon/current/REVISION ] as coupon@139.59.147.22
+ DEBUG [f8c0e7e0] Command: [ -f /home/coupon/sinatra-coupon/current/REVISION ]
+ DEBUG [f8c0e7e0] Finished in 0.489 seconds with exit status 0 (successful).
+ DEBUG [29f9123a] Running /usr/bin/env cat /home/coupon/sinatra-coupon/current/REVISION 2>/dev/null as coupon@139.59.147.22
+ DEBUG [29f9123a] Command: /usr/bin/env cat /home/coupon/sinatra-coupon/current/REVISION 2>/dev/null
+ DEBUG [29f9123a] 	8abdc00a19c4ad71265e2bb82be71a3fada4b4dd
+ DEBUG [29f9123a] Finished in 0.588 seconds with exit status 0 (successful).
+ DEBUG [e0257e6c] Running [ -f /home/coupon/sinatra-coupon/repo/HEAD ] as coupon@139.59.147.22
+ DEBUG [e0257e6c] Command: [ -f /home/coupon/sinatra-coupon/repo/HEAD ]
+ DEBUG [e0257e6c] Finished in 0.628 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/coupon/sinatra-coupon/repo
+ DEBUG [8dad0c74] Running if test ! -d /home/coupon/sinatra-coupon/repo; then echo "Directory does not exist '/home/coupon/sinatra-coupon/repo'" 1>&2; false; fi as coupon@139.59.147.22
+ DEBUG [8dad0c74] Command: if test ! -d /home/coupon/sinatra-coupon/repo; then echo "Directory does not exist '/home/coupon/sinatra-coupon/repo'" 1>&2; false; fi
+ DEBUG [8dad0c74] Finished in 0.181 seconds with exit status 0 (successful).
+  INFO [c5fd3ab9] Running /usr/bin/env git remote set-url origin git@github.com:OleksaRiabukha/sinatra-coupon.git as coupon@139.59.147.22
+ DEBUG [c5fd3ab9] Command: cd /home/coupon/sinatra-coupon/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-cd51649f36f38f39054c.sh" ; /usr/bin/env git remote set-url origin git@github.com:OleksaRiabukha/sinatra-coupon.git )
+  INFO [c5fd3ab9] Finished in 0.165 seconds with exit status 0 (successful).
+  INFO [5425d944] Running /usr/bin/env git remote update --prune as coupon@139.59.147.22
+ DEBUG [5425d944] Command: cd /home/coupon/sinatra-coupon/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-cd51649f36f38f39054c.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [5425d944] 	Fetching origin
+ DEBUG [5425d944] 	From github.com:OleksaRiabukha/sinatra-coupon
+   5cd0e84..d9900fa  infrastructure-deploy-to-digitalocean -> infrastructure-deploy-to-digitalocean
+  INFO [5425d944] Finished in 1.608 seconds with exit status 0 (successful).
+ DEBUG [3371342f] Running if test ! -d /home/coupon/sinatra-coupon/repo; then echo "Directory does not exist '/home/coupon/sinatra-coupon/repo'" 1>&2; false; fi as coupon@139.59.147.22
+ DEBUG [3371342f] Command: if test ! -d /home/coupon/sinatra-coupon/repo; then echo "Directory does not exist '/home/coupon/sinatra-coupon/repo'" 1>&2; false; fi
+ DEBUG [3371342f] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO [aa4898d6] Running /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/releases/20211007085339 as coupon@139.59.147.22
+ DEBUG [aa4898d6] Command: cd /home/coupon/sinatra-coupon/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-cd51649f36f38f39054c.sh" ; /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/releases/20211007085339 )
+  INFO [aa4898d6] Finished in 0.235 seconds with exit status 0 (successful).
+  INFO [f5522366] Running /usr/bin/env git archive infrastructure-deploy-to-digitalocean | /usr/bin/env tar -x -f - -C /home/coupon/sinatra-coupon/releases/20211007085339 as coupon@139.59.147.22
+ DEBUG [f5522366] Command: cd /home/coupon/sinatra-coupon/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-cd51649f36f38f39054c.sh" ; /usr/bin/env git archive infrastructure-deploy-to-digitalocean | /usr/bin/env tar -x -f - -C /home/coupon/sinatra-coupon/releases/20211007085339 )
+  INFO [f5522366] Finished in 0.252 seconds with exit status 0 (successful).
+ DEBUG [9df6f614] Running if test ! -d /home/coupon/sinatra-coupon/repo; then echo "Directory does not exist '/home/coupon/sinatra-coupon/repo'" 1>&2; false; fi as coupon@139.59.147.22
+ DEBUG [9df6f614] Command: if test ! -d /home/coupon/sinatra-coupon/repo; then echo "Directory does not exist '/home/coupon/sinatra-coupon/repo'" 1>&2; false; fi
+ DEBUG [9df6f614] Finished in 0.261 seconds with exit status 0 (successful).
+ DEBUG [df9c8dd3] Running /usr/bin/env git rev-list --max-count=1 infrastructure-deploy-to-digitalocean as coupon@139.59.147.22
+ DEBUG [df9c8dd3] Command: cd /home/coupon/sinatra-coupon/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-cd51649f36f38f39054c.sh" ; /usr/bin/env git rev-list --max-count=1 infrastructure-deploy-to-digitalocean )
+ DEBUG [df9c8dd3] 	d9900fadfa4771d24cd24fb2752368af0a4e3b68
+ DEBUG [df9c8dd3] Finished in 0.199 seconds with exit status 0 (successful).
+ DEBUG [792babc0] Running if test ! -d /home/coupon/sinatra-coupon/releases/20211007085339; then echo "Directory does not exist '/home/coupon/sinatra-coupon/releases/20211007085339'" 1>&2; false; fi as coupon@139.59.147.22
+ DEBUG [792babc0] Command: if test ! -d /home/coupon/sinatra-coupon/releases/20211007085339; then echo "Directory does not exist '/home/coupon/sinatra-coupon/releases/20211007085339'" 1>&2; false; fi
+ DEBUG [792babc0] Finished in 0.478 seconds with exit status 0 (successful).
+  INFO [7e9fa091] Running /usr/bin/env echo "d9900fadfa4771d24cd24fb2752368af0a4e3b68" > REVISION as coupon@139.59.147.22
+ DEBUG [7e9fa091] Command: cd /home/coupon/sinatra-coupon/releases/20211007085339 && /usr/bin/env echo "d9900fadfa4771d24cd24fb2752368af0a4e3b68" > REVISION
+  INFO [7e9fa091] Finished in 0.280 seconds with exit status 0 (successful).
+  INFO [ea1047e0] Running /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/releases/20211007085339/config as coupon@139.59.147.22
+ DEBUG [ea1047e0] Command: /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/releases/20211007085339/config
+  INFO [ea1047e0] Finished in 0.876 seconds with exit status 0 (successful).
+ DEBUG [0e4dfd9e] Running [ -L /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml ] as coupon@139.59.147.22
+ DEBUG [0e4dfd9e] Command: [ -L /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml ]
+ DEBUG [0e4dfd9e] Finished in 0.929 seconds with exit status 1 (failed).
+ DEBUG [3fe2c2c9] Running [ -f /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml ] as coupon@139.59.147.22
+ DEBUG [3fe2c2c9] Command: [ -f /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml ]
+ DEBUG [3fe2c2c9] Finished in 0.432 seconds with exit status 0 (successful).
+  INFO [c8f98fbf] Running /usr/bin/env rm /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml as coupon@139.59.147.22
+ DEBUG [c8f98fbf] Command: /usr/bin/env rm /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml
+  INFO [c8f98fbf] Finished in 0.479 seconds with exit status 0 (successful).
+  INFO [17b68ebc] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/config/database.yml /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml as coupon@139.59.147.22
+ DEBUG [17b68ebc] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/config/database.yml /home/coupon/sinatra-coupon/releases/20211007085339/config/database.yml
+  INFO [17b68ebc] Finished in 0.239 seconds with exit status 0 (successful).
+  INFO [c1bfd7b5] Running /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/releases/20211007085339 /home/coupon/sinatra-coupon/releases/20211007085339/tmp /home/coupon/sinatra-coupon/releases/20211007085339/public as coupon@139.59.147.22
+ DEBUG [c1bfd7b5] Command: /usr/bin/env mkdir -p /home/coupon/sinatra-coupon/releases/20211007085339 /home/coupon/sinatra-coupon/releases/20211007085339/tmp /home/coupon/sinatra-coupon/releases/20211007085339/public
+  INFO [c1bfd7b5] Finished in 0.763 seconds with exit status 0 (successful).
+ DEBUG [28bb9029] Running [ -L /home/coupon/sinatra-coupon/releases/20211007085339/log ] as coupon@139.59.147.22
+ DEBUG [28bb9029] Command: [ -L /home/coupon/sinatra-coupon/releases/20211007085339/log ]
+ DEBUG [28bb9029] Finished in 0.545 seconds with exit status 1 (failed).
+ DEBUG [67092769] Running [ -d /home/coupon/sinatra-coupon/releases/20211007085339/log ] as coupon@139.59.147.22
+ DEBUG [67092769] Command: [ -d /home/coupon/sinatra-coupon/releases/20211007085339/log ]
+ DEBUG [67092769] Finished in 0.187 seconds with exit status 0 (successful).
+  INFO [8f18ef23] Running /usr/bin/env rm -rf /home/coupon/sinatra-coupon/releases/20211007085339/log as coupon@139.59.147.22
+ DEBUG [8f18ef23] Command: /usr/bin/env rm -rf /home/coupon/sinatra-coupon/releases/20211007085339/log
+  INFO [8f18ef23] Finished in 0.394 seconds with exit status 0 (successful).
+  INFO [6d6463f4] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/log /home/coupon/sinatra-coupon/releases/20211007085339/log as coupon@139.59.147.22
+ DEBUG [6d6463f4] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/log /home/coupon/sinatra-coupon/releases/20211007085339/log
+  INFO [6d6463f4] Finished in 0.458 seconds with exit status 0 (successful).
+ DEBUG [ec011aee] Running [ -L /home/coupon/sinatra-coupon/releases/20211007085339/tmp/pids ] as coupon@139.59.147.22
+ DEBUG [ec011aee] Command: [ -L /home/coupon/sinatra-coupon/releases/20211007085339/tmp/pids ]
+ DEBUG [ec011aee] Finished in 0.211 seconds with exit status 1 (failed).
+ DEBUG [8f705fcd] Running [ -d /home/coupon/sinatra-coupon/releases/20211007085339/tmp/pids ] as coupon@139.59.147.22
+ DEBUG [8f705fcd] Command: [ -d /home/coupon/sinatra-coupon/releases/20211007085339/tmp/pids ]
+ DEBUG [8f705fcd] Finished in 0.639 seconds with exit status 1 (failed).
+  INFO [d9d09e8e] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/tmp/pids /home/coupon/sinatra-coupon/releases/20211007085339/tmp/pids as coupon@139.59.147.22
+ DEBUG [d9d09e8e] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/tmp/pids /home/coupon/sinatra-coupon/releases/20211007085339/tmp/pids
+  INFO [d9d09e8e] Finished in 0.549 seconds with exit status 0 (successful).
+ DEBUG [fc65d3e0] Running [ -L /home/coupon/sinatra-coupon/releases/20211007085339/tmp/cache ] as coupon@139.59.147.22
+ DEBUG [fc65d3e0] Command: [ -L /home/coupon/sinatra-coupon/releases/20211007085339/tmp/cache ]
+ DEBUG [fc65d3e0] Finished in 0.247 seconds with exit status 1 (failed).
+ DEBUG [02f59722] Running [ -d /home/coupon/sinatra-coupon/releases/20211007085339/tmp/cache ] as coupon@139.59.147.22
+ DEBUG [02f59722] Command: [ -d /home/coupon/sinatra-coupon/releases/20211007085339/tmp/cache ]
+ DEBUG [02f59722] Finished in 0.512 seconds with exit status 1 (failed).
+  INFO [a15b99dd] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/tmp/cache /home/coupon/sinatra-coupon/releases/20211007085339/tmp/cache as coupon@139.59.147.22
+ DEBUG [a15b99dd] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/tmp/cache /home/coupon/sinatra-coupon/releases/20211007085339/tmp/cache
+  INFO [a15b99dd] Finished in 0.561 seconds with exit status 0 (successful).
+ DEBUG [379a9d38] Running [ -L /home/coupon/sinatra-coupon/releases/20211007085339/tmp/sockets ] as coupon@139.59.147.22
+ DEBUG [379a9d38] Command: [ -L /home/coupon/sinatra-coupon/releases/20211007085339/tmp/sockets ]
+ DEBUG [379a9d38] Finished in 0.380 seconds with exit status 1 (failed).
+ DEBUG [ab8ebf03] Running [ -d /home/coupon/sinatra-coupon/releases/20211007085339/tmp/sockets ] as coupon@139.59.147.22
+ DEBUG [ab8ebf03] Command: [ -d /home/coupon/sinatra-coupon/releases/20211007085339/tmp/sockets ]
+ DEBUG [ab8ebf03] Finished in 0.708 seconds with exit status 1 (failed).
+  INFO [ccb04716] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/tmp/sockets /home/coupon/sinatra-coupon/releases/20211007085339/tmp/sockets as coupon@139.59.147.22
+ DEBUG [ccb04716] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/tmp/sockets /home/coupon/sinatra-coupon/releases/20211007085339/tmp/sockets
+  INFO [ccb04716] Finished in 0.583 seconds with exit status 0 (successful).
+ DEBUG [b7341e43] Running [ -L /home/coupon/sinatra-coupon/releases/20211007085339/public/system ] as coupon@139.59.147.22
+ DEBUG [b7341e43] Command: [ -L /home/coupon/sinatra-coupon/releases/20211007085339/public/system ]
+ DEBUG [b7341e43] Finished in 0.204 seconds with exit status 1 (failed).
+ DEBUG [a5283419] Running [ -d /home/coupon/sinatra-coupon/releases/20211007085339/public/system ] as coupon@139.59.147.22
+ DEBUG [a5283419] Command: [ -d /home/coupon/sinatra-coupon/releases/20211007085339/public/system ]
+ DEBUG [a5283419] Finished in 0.166 seconds with exit status 1 (failed).
+  INFO [6a094afa] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/public/system /home/coupon/sinatra-coupon/releases/20211007085339/public/system as coupon@139.59.147.22
+ DEBUG [6a094afa] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/shared/public/system /home/coupon/sinatra-coupon/releases/20211007085339/public/system
+  INFO [6a094afa] Finished in 0.215 seconds with exit status 0 (successful).
+  INFO [6467103e] Running /usr/bin/env ln -s /home/coupon/sinatra-coupon/releases/20211007085339 /home/coupon/sinatra-coupon/releases/current as coupon@139.59.147.22
+ DEBUG [6467103e] Command: /usr/bin/env ln -s /home/coupon/sinatra-coupon/releases/20211007085339 /home/coupon/sinatra-coupon/releases/current
+  INFO [6467103e] Finished in 0.456 seconds with exit status 0 (successful).
+  INFO [56dff21d] Running /usr/bin/env mv /home/coupon/sinatra-coupon/releases/current /home/coupon/sinatra-coupon as coupon@139.59.147.22
+ DEBUG [56dff21d] Command: /usr/bin/env mv /home/coupon/sinatra-coupon/releases/current /home/coupon/sinatra-coupon
+  INFO [56dff21d] Finished in 0.245 seconds with exit status 0 (successful).
+ DEBUG [c270ad94] Running /usr/bin/env ls -x /home/coupon/sinatra-coupon/releases as coupon@139.59.147.22
+ DEBUG [c270ad94] Command: /usr/bin/env ls -x /home/coupon/sinatra-coupon/releases
+ DEBUG [c270ad94] 	20211007083404	20211007083752	20211007084241	20211007084818	20211007085339
+ DEBUG [c270ad94] Finished in 0.510 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 5 deployed releases on 139.59.147.22
+ DEBUG [8ca2c211] Running [ -d /home/coupon/sinatra-coupon/current ] as coupon@139.59.147.22
+ DEBUG [8ca2c211] Command: [ -d /home/coupon/sinatra-coupon/current ]
+ DEBUG [8ca2c211] Finished in 0.526 seconds with exit status 0 (successful).
+ DEBUG [279b2db5] Running /usr/bin/env readlink /home/coupon/sinatra-coupon/current as coupon@139.59.147.22
+ DEBUG [279b2db5] Command: /usr/bin/env readlink /home/coupon/sinatra-coupon/current
+ DEBUG [279b2db5] 	/home/coupon/sinatra-coupon/releases/20211007085339
+ DEBUG [279b2db5] Finished in 0.505 seconds with exit status 0 (successful).
+  INFO No old releases (keeping newest 5) on 139.59.147.22
+ DEBUG [4fc97f24] Running if test ! -d /home/coupon/sinatra-coupon/releases; then echo "Directory does not exist '/home/coupon/sinatra-coupon/releases'" 1>&2; false; fi as coupon@139.59.147.22
+ DEBUG [4fc97f24] Command: if test ! -d /home/coupon/sinatra-coupon/releases; then echo "Directory does not exist '/home/coupon/sinatra-coupon/releases'" 1>&2; false; fi
+ DEBUG [4fc97f24] Finished in 0.529 seconds with exit status 0 (successful).
+  INFO [8890cedf] Running /usr/bin/env echo "Branch infrastructure-deploy-to-digitalocean (at d9900fadfa4771d24cd24fb2752368af0a4e3b68) deployed as release 20211007085339 by oriabu" >> /home/coupon/sinatra-coupon/revisions.log as coupon@139.59.147.22
+ DEBUG [8890cedf] Command: cd /home/coupon/sinatra-coupon/releases && /usr/bin/env echo "Branch infrastructure-deploy-to-digitalocean (at d9900fadfa4771d24cd24fb2752368af0a4e3b68) deployed as release 20211007085339 by oriabu" >> /home/coupon/sinatra-coupon/revisions.log
+  INFO [8890cedf] Finished in 0.175 seconds with exit status 0 (successful).

@@ -11,7 +11,7 @@ Dotenv.load(".env.#{ENV['RACK_ENV']}")
 
 require 'pry' unless ENV['APP_ENV'] == 'production'
 
-['./lib/*.rb', './config/*.rb', './models/*.rb', './controllers/*.rb', './serializers/*.rb'].each do |files|
+['./lib/*.rb', './models/*.rb', './controllers/*.rb', './serializers/*.rb'].each do |files|
   Dir[files].each { |file| require_relative file }
 end
 
