@@ -3,7 +3,7 @@ lock "~> 3.16.0"
 
 set :application, "sinatra-coupon"
 set :repo_url, "git@github.com:OleksaRiabukha/sinatra-coupon.git"
-set :branch, "infrastructure-deploy-to-digitalocean"
+set :branch, "main"
 
 # Default branch is :master
 #ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
